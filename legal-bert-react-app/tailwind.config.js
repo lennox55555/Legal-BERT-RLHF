@@ -2,16 +2,17 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  theme: {
-    extend: {
-      colors: {
-        'blue': {
-          600: '#4F46E5',  // Adjust this color to match your image
-        }
-      }
+  safelist: [
+    {
+      pattern: /bg-(red|green|blue)-(50|100|200|300|400|500)/,
+      variants: ['hover'],
     },
+  ],
+  theme: {
+    extend: {},
   },
   plugins: [
     require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
   ],
 }
