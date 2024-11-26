@@ -1,14 +1,17 @@
-┌─────────────────────────────────────────────────────────────────────┐
-│                           User's Browser                            │
-│                                                                     │
-│  ┌──────────────────────────┐    React Components                  │
-│  │     React Frontend       │    ┌─────────────────────┐           │
-│  │                         │    │  - TextAnalyzer     │           │
-│  │  Congressional Text     │    │  - ResultDisplay    │           │
-│  │  Analysis Interface     │    │  - Overview         │           │
-│  │                         │    │  - Research         │           │
-│  └───────────┬──────────────┘    └─────────────────────┘           │
-└──────────────┼──────────────────────────────────────────────────────┘
+# Legal-BERT Congressional Text Analysis Application Architecture
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│                           User's Browser                         │
+│                                                                  │
+│  ┌──────────────────────────┐    React Components                │
+│  │     React Frontend       │    ┌─────────────────────┐         │
+│  │                         │     │  - TextAnalyzer     │         │
+│  │  Congressional Text     │     │  - ResultDisplay    │         │
+│  │  Analysis Interface     │     │  - Overview         │         │
+│  │                         │     │  - Research         │         │
+│  └───────────┬──────────────┘    └─────────────────────┘         │
+└──────────────┼───────────────────────────────────────────────────┘
                │
                │ HTTPS
                ▼
@@ -37,17 +40,18 @@
 │    │  (server.py)        │─▶│  - Tokenizer    │  │
 │    │                     │ │  - Classifier    │  │
 │    └─────────────────────┘ └──────────────────┘  │
-│                │                    ▲             │
-│                │                    │             │
-│                ▼                    │             │
+│                │                   ▲             │
+│                │                   │             │
+│                ▼                   │             │
 │    ┌─────────────────────┐         │             │
 │    │  EFS Mount          │         │             │
 │    │  - Model Files      │─────────┘             │
 │    │  - Label Mappings   │                       │
 │    └─────────────────────┘                       │
 └──────────────────────────────────────────────────┘
+```
 
-Data Flow:
+## Data Flow
 1. User enters text → React Frontend
 2. Frontend sends POST request → API Gateway
 3. API Gateway triggers → Lambda Function
@@ -55,3 +59,27 @@ Data Flow:
 5. FastAPI processes request using Legal-BERT Model
 6. Response flows back through the stack
 7. Frontend displays classification results
+
+## Key Components
+
+### Frontend (React):
+```
+├── Components
+│   ├── TextAnalyzer (Text input & submission)
+│   ├── ResultDisplay (Shows predictions)
+│   ├── Overview (Tool description)
+│   └── Research (Research information)
+└── API Integration
+```
+
+### Backend:
+```
+├── API Gateway (REST API endpoint)
+├── Lambda Function (Request handler)
+└── EC2 Instance
+    ├── FastAPI Server
+    ├── Legal-BERT Model
+    └── EFS Storage
+        ├── Model Files
+        └── Label Mappings
+```
