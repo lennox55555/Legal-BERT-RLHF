@@ -1,5 +1,7 @@
 # Legal-BERT Congressional Text Analysis Application Architecture
 
+The project focuses on improving the alignment of LegalBERT—a specialized transformer-based model pre-trained on legal texts—with human reasoning and decision-making processes. LegalBERT is particularly adept at understanding and analyzing legislative documents, bills, and laws. However, the objective here is to refine the model using Reinforcement Learning with Human Feedback (RLHF) to ensure that its outputs align better with human ethical and contextual interpretations.
+
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                           User's Browser                         │
