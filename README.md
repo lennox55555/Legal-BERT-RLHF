@@ -64,15 +64,6 @@ The project focuses on improving the alignment of LegalBERT—a specialized tran
 
 ## Key Components
 
-### Frontend (React):
-```
-├── Components
-│   ├── TextAnalyzer (Text input & submission)
-│   ├── ResultDisplay (Shows predictions)
-│   ├── Overview (Tool description)
-│   └── Research (Research information)
-└── API Integration
-```
 
 ### Backend:
 ```
