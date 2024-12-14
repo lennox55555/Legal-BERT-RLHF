@@ -62,17 +62,6 @@ The project focuses on improving the alignment of LegalBERT—a specialized tran
 6. Response flows back through the stack
 7. Frontend displays classification results
 
-## Key Components
 
 
-### Backend:
-```
-├── API Gateway (REST API endpoint)
-├── Lambda Function (Request handler)
-└── EC2 Instance
-    ├── FastAPI Server
-    ├── Legal-BERT Model
-    └── EFS Storage
-        ├── Model Files
-        └── Label Mappings
-```
+
